@@ -13,7 +13,7 @@ function ManufacturersList({manufacturers}){
           {manufacturers.map(manufacturer => {
             return (
               <tr key={manufacturer.id}>
-                <td>Test{ manufacturer.name }</td>
+                <td>{ manufacturer.name }</td>
               </tr>
             );
           })}

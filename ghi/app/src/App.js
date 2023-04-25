@@ -6,9 +6,12 @@ import ManufacturersList from './ManufacturersList';
 import { useState, useEffect } from 'react';
 import VehicleModelForm from './VehicleModelForm';
 import VehicleModels from './VehicleModels';
+import NewAutomobileForm from './NewAutomobileForm';
+import AutomobileList from './AutomobilesList';
 
 function App() {
   const [manufacturers, setManufacturers] = useState([]);
+  const [automobiles, setAutomobiles] = useState([]);
 
   const getManufacturers = async () => {
     const url = 'http://localhost:8100/api/manufacturers/';
@@ -20,7 +23,19 @@ function App() {
     }
   }
 
+  const getAutomobiles = async () => {
+    const url = 'http://localhost:8100/api/automobiles/';
+    const response = await fetch(url);
+    if (response.ok){
+      const data = await response.json();
+      const automobiles = data.autos;
+      setAutomobiles(automobiles)
+    }
+  }
+
+
   useEffect(() => {
+    getAutomobiles();
     getManufacturers();
   }, []);
 
@@ -33,6 +48,10 @@ function App() {
           <Route path="manufacturers">
             <Route index element={<ManufacturersList manufacturers={manufacturers}/>}/>
             <Route path='new' element={<NewManufacturerForm manufacturers={manufacturers} getManufacturers={getManufacturers} />} />
+          </Route>
+          <Route path="automobiles">
+            <Route index element={<AutomobileList automobiles={automobiles}/>}/>
+            <Route path='new' element={<NewAutomobileForm automobiles={automobiles} getAutomobiles={getAutomobiles} />} />
           </Route>
 
           <Route path="models/">
