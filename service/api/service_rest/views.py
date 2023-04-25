@@ -27,7 +27,7 @@ def api_technicians(request):
             return JsonResponse(
                 {"Error": "Technicians do not exist"}, status=400
             )
-    else:
+    else: # POST
         try:
             content = json.loads(request.body)
             technician = Technician.objects.create(**content)
@@ -40,3 +40,31 @@ def api_technicians(request):
             return JsonResponse(
                 {"Error": "Technician does not exitist"}
             )
+
+@require_http_methods(["GET", "DELETE"])
+def api_technician(request, id):
+    if request.method == "GET":
+        try:
+            technician = Technician.objects.get(employee_number=id)
+            return JsonResponse(
+                technician,
+                encoder=TechnicianEncoder,
+                safe=False,
+            )
+        except Technician.DoesNotExist:
+            return JsonResponse(
+                {"Error": "Invalid Technician Employee Number"},
+                status=400
+            )
+    elif request.method == "DELETE":
+        try:
+            technician = Technician.objects.get(employee_number=id)
+            technician.delete()
+            return JsonResponse(
+                {"Deleted": "Successfully deleted Technician"}
+            )
+        except Technician.DoesNotExist:
+            return JsonResponse(
+                {"Message": "Does not exist"}
+            )
+            
