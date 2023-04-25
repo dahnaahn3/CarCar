@@ -16,6 +16,18 @@ class TechnicianEncoder(ModelEncoder):
 
 class AppointmentEncoder(ModelEncoder):
     model = Appointment
+    properties = [
+        "customer_name",
+        "date_time",
+        "description",
+        "VIP",
+        "completed",
+        "technician",
+        "id",
+    ]
+    encoders={
+        'technician': TechnicianEncoder(),
+    }
 
 
 @require_http_methods(["GET", "POST"])
@@ -72,3 +84,20 @@ def api_technician(request, id):
                 {"Message": "Does not exist"}
             )
             
+@require_http_methods(["GET", "POST"])
+def api_appointments(request, vin=None):
+    if request.method == "GET":
+        try:
+            if vin is not None:
+                appointments = Appointment.objects.filter(vin=vin)
+            else:
+                appointments = Appointment.objects.all()
+            return JsonResponse(
+                {"appointments": appointments},
+                encoder=AppointmentEncoder,
+                safe=False,
+            )
+        except Appointment.DoesNotExist:
+            return JsonResponse(
+                {"Error": "Appointments does not exist"}
+            )
