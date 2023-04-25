@@ -2,8 +2,10 @@
 
 Team:
 
-* Person 1 - Which microservice?
-* Person 2 - Dahna - Sales
+
+* Dahna - Sales
+* Matthew Huff - Services
+
 
 ## Design
 
