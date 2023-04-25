@@ -45,7 +45,7 @@ class Test_Poller(unittest.TestCase):
 
     def test_fetch(self, mock_get):
         AutomobileVO.objects.all().delete()
-        poll(False)
+        poll()
         self.assertEqual(len(AutomobileVO.objects.all()), 3)
         AutomobileVO.objects.all().delete()
 
