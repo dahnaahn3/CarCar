@@ -7,7 +7,7 @@ from .models import Salesperson, Customer, AutomobileVO, Sale
 
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["import_href", "vin"]
+    properties = ["vin", "import_href"]
 
 class SalespersonEncoder(ModelEncoder):
     model = Salesperson
@@ -31,17 +31,15 @@ class SaleEncoder(ModelEncoder):
     properties = [
         "price",
         "automobile",
-        "salesperson",
-        "customer"
     ]
+    encoders = {
+        "automobile": AutomobileVOEncoder()
+    }
     def get_extra_data(self, o):
-        return{"automobile": o.automobile.vin}
+        return{"customer": o.customer.first_name,
+               "salesperson": o.salesperson.first_name}
 
-    def get_extra_data(self,o):
-        return{"salesperson": o.salesperson.first_name}
 
-    def get_extra_data(self, o):
-        return{"customer": o.customer.first_name}
 
 
 @require_http_methods(['GET', 'POST'])
@@ -50,16 +48,23 @@ def api_list_salesperson(request):
         salesperson = Salesperson.objects.all()
         return JsonResponse(
             {"salesperson": salesperson},
-            encoder=SalespersonEncoder
+            encoder=SalespersonEncoder,
         )
     else: #POST TO CREATE SALESPERSON
-        content = json.loads(request.body)
-        salesperson = Salesperson.objects.create(**content)
-        return JsonResponse(
-            salesperson,
-            encoder=SalespersonEncoder,
-            safe=False
-        )
+        try:
+            content = json.loads(request.body)
+            salesperson = Salesperson.objects.create(**content)
+            return JsonResponse(
+                salesperson,
+                encoder=SalespersonEncoder,
+                safe=False
+            )
+        except:
+            response = JsonResponse(
+                {"message": "Could not create the salesperson"}
+            )
+            response.status_code = 400
+            return response
 
 @require_http_methods(["DELETE"])
 def api_delete_salesperson(request, id):
@@ -72,4 +77,85 @@ def api_delete_salesperson(request, id):
             safe=False
         )
     except Salesperson.DoesNotExist:
-        return JsonResponse({'message': 'salesperson does not exist'})
+        response = JsonResponse({'message': 'salesperson does not exist'})
+        response.status_code = 400
+        return response
+
+
+@require_http_methods(['GET', 'POST'])
+def api_list_customer(request):
+    if request.method=="GET": #GET LIST OF ALL CUSTOMER
+        customer = Customer.objects.all()
+        return JsonResponse(
+            {'customer': customer},
+            encoder=CustomerEncoder
+        )
+    else: #CREATE A NEW CUSTOMER
+        try:
+            content = json.loads(request.body)
+            customer = Customer.objects.create(**content)
+            return JsonResponse(
+                customer,
+                encoder=CustomerEncoder,
+                safe=False
+            )
+        except:
+            response = JsonResponse(
+                {"message": "Could not create customer"}
+            )
+            response.status_code = 400
+            return response
+
+@require_http_methods(["DELETE"])
+def api_delete_customer(request, id):
+    try:
+        customer = Customer.objects.get(id=id)
+        customer.delete()
+        return JsonResponse(
+            customer,
+            encoder=CustomerEncoder,
+            safe=False
+        )
+    except Customer.DoesNotExist:
+        response = JsonResponse({"message": "customer does not exist"})
+        response.status_code = 400
+        return response
+
+@require_http_methods(["GET", "POST"])
+def api_list_sales(request):
+    if request.method=="GET": #GET LIST OF ALL THE SALES
+        sales = Sale.objects.all()
+        return JsonResponse(
+            {"sales": sales},
+            encoder=SaleEncoder,
+        )
+    else: #CREATE A SALE
+        try:
+            content = json.loads(request.body)
+            sales = Sale.objects.create(**content)
+            return JsonResponse(
+                sales,
+                encoder=SaleEncoder,
+                safe=False
+            )
+        except Sale.DoesNotExist:
+            response = JsonResponse(
+                {"message": "Could not create sale"}
+            )
+            response.status_code = 400
+            return response
+
+@require_http_methods(["DELETE"])
+def api_delete_sale(request, id):
+    try:
+        sales = Sale.objects.get(id=id)
+        sales.delete()
+        return JsonResponse(
+            sales,
+            encoder=SaleEncoder,
+            safe=False
+        )
+    except Sale.DoesNotExist:
+        response = JsonResponse({"message": "sale does not exist"})
+        response.status_code = 400
+        return response
