@@ -24,6 +24,9 @@ class AppointmentEncoder(ModelEncoder):
         "completed",
         "technician",
         "id",
+        "vin",
+        "completed",
+        "id"
     ]
     encoders={
         'technician': TechnicianEncoder(),
@@ -100,4 +103,30 @@ def api_appointments(request, vin=None):
         except Appointment.DoesNotExist:
             return JsonResponse(
                 {"Error": "Appointments does not exist"}
+            )
+    else: #POST
+        try:
+            content = json.loads(request.body)
+            try:
+                technician = Technician.objects.get(employee_number=content["technician"])
+                content['technician'] = technician
+            except Technician.DoesNotExist:
+                return JsonResponse(
+                    {"Error": "Technician does not exist"}
+                )
+            try:
+                if AutomobileVO.objects.get(vin=content['vin']) is not None:
+                    content["VIP"] = True
+            except AutomobileVO.DoesNotExist:
+                content["VIP"] = False
+            
+            appointment = Appointment.objects.create(**content)
+            return JsonResponse(
+                appointment,
+                encoder=AppointmentEncoder,
+                safe=False
+            )
+        except Appointment.DoesNotExist:
+            return JsonResponse(
+                {"Error": "Creation Failed"}
             )

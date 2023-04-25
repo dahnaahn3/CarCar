@@ -15,16 +15,13 @@ class Technician (models.Model):
         return reverse('api_technicians', kwargs={'id': self.id})
     
 class AutomobileVO(models.Model):
-    color = models.CharField(max_length=50)
-    year = models.PositiveSmallIntegerField()
-    vin = models.CharField(max_length=17, unique=True)
-    sold = models.BooleanField(default=False)
-    
+    import_href = models.CharField(max_length=200, unique=True, null=True)
+    vin = models.CharField(max_length=17, unique=True, null=True)
     def __str__(self):
         return self.vin
-    
 
 class Appointment(models.Model):
+    vin = models.CharField(max_length=17, null=True)
     customer_name = models.CharField(max_length=250)
     date_time = models.DateTimeField(null=True)
     description = models.TextField()
