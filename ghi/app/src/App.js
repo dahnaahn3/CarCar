@@ -8,6 +8,8 @@ import VehicleModelForm from './VehicleModelForm';
 import VehicleModels from './VehicleModels';
 import NewAutomobileForm from './NewAutomobileForm';
 import AutomobileList from './AutomobilesList';
+import Salesperson from './Salesperson';
+import SalespersonForm from './SalespersonForm';
 
 function App() {
   const [manufacturers, setManufacturers] = useState([]);
@@ -55,8 +57,13 @@ function App() {
           </Route>
 
           <Route path="models/">
-            <Route path="" element={<VehicleModels />} />
+            <Route index element={<VehicleModels />} />
             <Route path="create" element={<VehicleModelForm />} />
+          </Route>
+
+          <Route path="salesperson/">
+            <Route index element={<Salesperson />} />
+            <Route path="create" element={<SalespersonForm />} />
           </Route>
 
         </Routes>

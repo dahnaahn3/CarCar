@@ -5,7 +5,7 @@ from django.urls import reverse
 class Salesperson(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    employee_id = models.PositiveIntegerField()
+    employee_id = models.CharField(max_length=100)
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
@@ -44,7 +44,7 @@ class Sale(models.Model):
         on_delete=models.CASCADE
     )
 
-    
+
 
     def get_api_url(self):
         return reverse("api_list_sales", kwargs={"id": self.id})

@@ -14,7 +14,8 @@ class SalespersonEncoder(ModelEncoder):
     properties = [
         "first_name",
         "last_name",
-        "employee_id"
+        "employee_id",
+        "id"
     ]
 
 class CustomerEncoder(ModelEncoder):
@@ -23,12 +24,14 @@ class CustomerEncoder(ModelEncoder):
         "first_name",
         "last_name",
         "address",
-        "phone_number"
+        "phone_number",
+        "id"
     ]
 
 class SaleEncoder(ModelEncoder):
     model = Sale
     properties = [
+        "id",
         "price",
         "automobile",
     ]
