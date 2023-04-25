@@ -3,25 +3,24 @@ import MainPage from './MainPage';
 import Nav from './Nav';
 import NewManufacturerForm from './NewManufacturerForm';
 import ManufacturersList from './ManufacturersList';
-import { useState } from 'react';
-
-
-
+import { useState, useEffect } from 'react';
 
 function App() {
   const [manufacturers, setManufacturers] = useState([]);
 
-
   const getManufacturers = async () => {
     const url = 'http://localhost:8100/api/manufacturers/';
     const response = await fetch(url);
-
     if (response.ok){
       const data = await response.json();
       const manufacturers = data.manufacturers;
       setManufacturers(manufacturers)
     }
   }
+
+  useEffect(() => {
+    getManufacturers();
+  }, []);
 
   return (
     <BrowserRouter>
