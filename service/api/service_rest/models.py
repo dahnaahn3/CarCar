@@ -6,6 +6,7 @@ from django.urls import reverse
 class Technician (models.Model):
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
+    employee_number = models.PositiveIntegerField(unique=True)
     
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
@@ -28,7 +29,7 @@ class Appointment(models.Model):
     date_time = models.DateTimeField(null=True)
     description = models.TextField()
     VIP = models.BooleanField(default=False, null=True)
-    completed = models.BooleanField(default=Flase, null=True)
+    completed = models.BooleanField(default=False, null=True)
     
     technician = models.ForeignKey(
         Technician,
