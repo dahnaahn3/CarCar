@@ -29,7 +29,7 @@ function VehicleModels(){
                 <tr key={model.id}>
                     <td>{model.name}</td>
                     <td>{model.manufacturer.name}</td>
-                    <td> <img src={model.picture_url} alt={model.name} /> </td>
+                    <td> <img src={model.picture_url} alt={model.name} className="img-fluid w-100 h-100" style={{ maxWidth: '200px', maxHeight: '150px' }}/> </td>
                 </tr>
             )}
                 </tbody>
