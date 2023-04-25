@@ -44,7 +44,7 @@ def api_technicians(request):
             )
         except Technician.DoesNotExist:
             return JsonResponse(
-                {"Error": "Technicians do not exist"}, status=400
+                {"Error": "Technicians do not exist"}, status=404
             )
     else: # POST
         try:
@@ -115,7 +115,7 @@ def api_appointments(request, vin=None):
                     {"Error": "Technician does not exist"}
                 )
             try:
-                if AutomobileVO.objects.get(vin=content['vin']) is not None:
+                if AutomobileVO.objects.filter(vin=content['vin']).exists():
                     content["VIP"] = True
             except AutomobileVO.DoesNotExist:
                 content["VIP"] = False
@@ -129,4 +129,49 @@ def api_appointments(request, vin=None):
         except Appointment.DoesNotExist:
             return JsonResponse(
                 {"Error": "Creation Failed"}
+            )
+            
+@require_http_methods(["GET", "DELETE", "PUT"])
+def api_appointment(request, id):
+    if request.method == "GET":
+        try:
+            appointment = Appointment.objects.get(id=id)
+            return JsonResponse(
+                appointment,
+                encoder=AppointmentEncoder,
+                safe=False,
+            )
+        except Appointment.DoesNotExist:
+            return JsonResponse(
+                {"Error": "Appointment does not exist"},
+                status= 404,
+            )
+    elif request.method == "DELETE":
+        try:
+            appointment = Appointment.objects.get(id=id)
+            appointment.delete()
+            return JsonResponse(
+                    {"Deleted": "Successfully deleted Appointment"}
+                )
+        except Appointment.DoesNotExist:
+            return JsonResponse(
+                {"Message": "Does not exist"}
+            )
+    else: #PUT
+        try:
+            content = json.loads(request.body)
+            if "appointment" in content:
+                appointment = Appointment.objects.get(id=id)
+            
+            Appointment.objects.filter(id=id).update(**content)
+            appointment = Appointment.objects.get(id=id)
+            return JsonResponse(
+                appointment,
+                encoder=AppointmentEncoder,
+                safe=False,
+            )
+        except:
+            return JsonResponse(
+                {"message": "Update Failed"},
+                status=400
             )
