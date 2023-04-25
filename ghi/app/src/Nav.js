@@ -7,14 +7,13 @@ function Nav() {
         <NavLink className="navbar-brand" to="/">CarCar</NavLink>
         <NavLink className="navbar-brand" to="/models">Models</NavLink>
         <NavLink className="navbar-brand" to="/models/create">Create a Model</NavLink>
+        <NavLink className="navbar-brand" aria-current="page" to="/manufacturers/">Manufacturer</NavLink>
+        <NavLink className="navbar-brand" aria-current="page" to="/manufacturers/new/">Create a Manufacturer</NavLink>
+        <NavLink className="navbar-brand" aria-current="page" to="/automobiles/">Automobiles</NavLink>
+        <NavLink className="navbar-brand" aria-current="page" to="/automobiles/new/">Create an Automobile</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li><NavLink className="text-white" aria-current="page" to="/manufacturers/new/">Test</NavLink></li>
-          </ul>
-        </div>
       </div>
     </nav>
   )
