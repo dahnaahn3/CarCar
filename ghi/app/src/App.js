@@ -4,6 +4,8 @@ import Nav from './Nav';
 import NewManufacturerForm from './NewManufacturerForm';
 import ManufacturersList from './ManufacturersList';
 import { useState, useEffect } from 'react';
+import VehicleModelForm from './VehicleModelForm';
+import VehicleModels from './VehicleModels';
 
 function App() {
   const [manufacturers, setManufacturers] = useState([]);
@@ -32,6 +34,12 @@ function App() {
             <Route index element={<ManufacturersList manufacturers={manufacturers}/>}/>
             <Route path='new' element={<NewManufacturerForm manufacturers={manufacturers} getManufacturers={getManufacturers} />} />
           </Route>
+
+          <Route path="models/">
+            <Route path="" element={<VehicleModels />} />
+            <Route path="create" element={<VehicleModelForm />} />
+          </Route>
+
         </Routes>
       </div>
     </BrowserRouter>
