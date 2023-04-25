@@ -39,10 +39,10 @@ class SaleEncoder(ModelEncoder):
         "automobile": AutomobileVOEncoder()
     }
     def get_extra_data(self, o):
-        return{"customer": o.customer.first_name,
-               "salesperson": o.salesperson.first_name}
-
-
+        return{"customer": f'{o.customer.first_name} {o.customer.last_name}',
+               "salesperson": f'{o.salesperson.first_name} {o.salesperson.last_name}',
+               "salesperson_employee_id": o.salesperson.employee_id
+               }
 
 
 @require_http_methods(['GET', 'POST'])

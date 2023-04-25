@@ -75,7 +75,11 @@ function App() {
             <Route path="create" element={<CustomerForm />} />
           </Route>
 
-          
+          <Route path="sales/">
+            <Route index element={<Sales />}/>
+            <Route path="create" element={<SaleForm />}/>
+
+          </Route>
 
         </Routes>
       </div>
