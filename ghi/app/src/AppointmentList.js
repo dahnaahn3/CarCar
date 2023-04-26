@@ -25,7 +25,7 @@ function AppointmentList({appointments, getAppointments}){
             getAppointments()
         }
     }
-    
+    getAppointments();
     return (
         <>
         <h1 className="mb-3 mt-3"> Upcoming Appointments</h1>

@@ -13,6 +13,7 @@ function Nav() {
         <NavLink className="navbar-brand" aria-current="page" to="/automobiles/new/">Create an Automobile</NavLink>
         <NavLink className="navbar-brand" aria-current="page" to="/technicians/">Technicians</NavLink>
         <NavLink className="navbar-brand" aria-current="page" to="/appointments/">Appointments</NavLink>
+        <NavLink className="navbar-brand" aria-current="page" to="/appointments/new/">Create an Appointment</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
