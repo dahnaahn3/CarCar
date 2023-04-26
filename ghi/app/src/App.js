@@ -73,15 +73,15 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="manufacturers">
-            <Route index element={<ManufacturersList manufacturers={manufacturers}/>}/>
+            <Route index element={<ManufacturersList manufacturers={manufacturers} getManufacturers={getManufacturers}/>}/>
             <Route path='new' element={<NewManufacturerForm manufacturers={manufacturers} getManufacturers={getManufacturers} />} />
           </Route>
           <Route path="automobiles">
-            <Route index element={<AutomobileList automobiles={automobiles}/>}/>
+            <Route index element={<AutomobileList automobiles={automobiles} getAutomobiles={getAutomobiles} />}/>
             <Route path='new' element={<NewAutomobileForm automobiles={automobiles} getAutomobiles={getAutomobiles} />} />
           </Route>
           <Route path="technicians">
-            <Route index element={<TechnicianList technicians={technicians}/>}/>
+            <Route index element={<TechnicianList technicians={technicians} getTechnicians={getTechnicians}/>}/>
             <Route path='new' element={<NewTechnicianForm technicians={technicians} getTechnicians={getTechnicians} />} />
           </Route>
           <Route path="appointments">

@@ -1,5 +1,11 @@
-function ManufacturersList({manufacturers}){
-    
+import { useEffect } from "react";
+
+function ManufacturersList({manufacturers, getManufacturers}){
+  
+  
+  useEffect(() => {
+    getManufacturers();
+  }, []);
     return (
         <>
         <h1 className="mb-3 mt-3">Manufacturers</h1>

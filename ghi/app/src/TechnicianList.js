@@ -1,5 +1,9 @@
-function TechnicianList({technicians}){
+import { useEffect } from "react";
 
+function TechnicianList({technicians, getTechnicians}){
+  useEffect(() => {
+    getTechnicians();
+  }, []);
     return (
         <>
         <h1 className="mb-3 mt-3">Technicians</h1>

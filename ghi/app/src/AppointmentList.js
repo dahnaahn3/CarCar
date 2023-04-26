@@ -1,5 +1,7 @@
+import { useEffect } from "react";
+
 function AppointmentList({appointments, getAppointments}){
-    
+
     const cancelAppointment = async (appointment) => {
         const url = `http://localhost:8080/api/appointments/${appointment.id}`
         const fetchConfig = {
@@ -25,7 +27,9 @@ function AppointmentList({appointments, getAppointments}){
             getAppointments()
         }
     }
-    getAppointments();
+    useEffect(() => {
+        getAppointments();
+    }, []);
     return (
         <>
         <h1 className="mb-3 mt-3"> Upcoming Appointments</h1>
