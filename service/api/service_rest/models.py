@@ -27,6 +27,7 @@ class Appointment(models.Model):
     description = models.TextField()
     VIP = models.BooleanField(default=False, null=True)
     completed = models.BooleanField(default=False, null=True)
+    canceled = models.BooleanField(default=False, null=True)
     
     technician = models.ForeignKey(
         Technician,
