@@ -33,7 +33,7 @@ function SaleForm(){
     const handleSubmit = async(event) =>{
         event.preventDefault()
         const data = {
-            vin: vin,
+            automobile: vin,
             salesperson: newSalesperson,
             customer: newCustomer,
             price: price
@@ -56,6 +56,7 @@ function SaleForm(){
         if(response.ok){
             const newSale = await response.json()
 
+            console.log('response', response)
             console.log('new sale' , newSale)
 
             setVin('')
@@ -112,7 +113,7 @@ function SaleForm(){
                         <option value={newSalesperson} >Choose a salesperson</option>
                         {salesperson.map(s =>{
                             return(
-                                <option>
+                                <option key={s.id} value={s.id}>
                                     {s.first_name} {s.last_name}
                                 </option>
                             )
@@ -125,7 +126,7 @@ function SaleForm(){
                         <option value={newCustomer} >Choose a customer</option>
                         {customer.map(c =>{
                             return(
-                                <option>
+                                <option key={c.id} value={c.id}>
                                     {c.first_name} {c.last_name}
                                 </option>
                             )
