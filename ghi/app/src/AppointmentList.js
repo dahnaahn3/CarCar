@@ -3,9 +3,13 @@ import { useEffect } from "react";
 function AppointmentList({appointments, getAppointments}){
 
     const cancelAppointment = async (appointment) => {
-        const url = `http://localhost:8080/api/appointments/${appointment.id}`
+        const url = `http://localhost:8080/api/appointments/${appointment.id}/cancel`
         const fetchConfig = {
-            method: 'DELETE',
+            method: 'PUT',
+            body: JSON.stringify({ "completed": true}),
+            headers: {
+                "Content-type": "application/json"
+            }
         };
         const response = await fetch(url, fetchConfig);
         if (response.ok){
@@ -14,7 +18,7 @@ function AppointmentList({appointments, getAppointments}){
     }
 
     const completeAppointment = async (appointment) => {
-        const url = `http://localhost:8080/api/appointments/${appointment.id}`
+        const url = `http://localhost:8080/api/appointments/${appointment.id}/finish`
         const fetchConfig = {
             method: 'PUT',
             body: JSON.stringify({ "completed": true}),
@@ -46,7 +50,7 @@ function AppointmentList({appointments, getAppointments}){
         </thead>
         <tbody>
           {appointments.map(appointment => {
-            if (appointment.completed === false){
+            if (appointment.completed === false && appointment.canceled === false){
                 return (
                 <tr key={appointment.id}>
                     <td>{ appointment.vin }</td>
