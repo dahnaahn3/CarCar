@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function VehicleModelForm(){
     const[manufacturers, setManufacturers] = useState([]);
@@ -19,7 +20,7 @@ function VehicleModelForm(){
         const value = event.target.value;
         setManufacturerName(value)
     }
-
+    const navigate = useNavigate()
     const handleSubmit = async (event) => {
         event.preventDefault();
         const data = {
@@ -43,6 +44,7 @@ function VehicleModelForm(){
             setModelName('');
             setPictureURL('');
             setManufacturerName('');
+            navigate('/models')
         }
     }
 

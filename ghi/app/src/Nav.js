@@ -9,6 +9,8 @@ function Nav() {
         <NavLink className="navbar-brand" to="/models/create">Create a Model</NavLink>
         <NavLink className="navbar-brand" aria-current="page" to="/manufacturers/">Manufacturers</NavLink>
         <NavLink className="navbar-brand" aria-current="page" to="/manufacturers/new/">Create a Manufacturer</NavLink>
+        <NavLink className="navbar-brand" aria-current="page" to="/models">Vehicle Models</NavLink>
+        <NavLink className="navbar-brand" aria-current="page" to="/models/create">Create a Vehicle Model</NavLink>
         <NavLink className="navbar-brand" aria-current="page" to="/automobiles/">Automobiles</NavLink>
         <NavLink className="navbar-brand" aria-current="page" to="/automobiles/new/">Create an Automobile</NavLink>
         <NavLink className="navbar-brand" aria-current="page" to="/technicians/">Technicians</NavLink>
@@ -16,6 +18,14 @@ function Nav() {
         <NavLink className="navbar-brand" aria-current="page" to="/appointments/">Appointments</NavLink>
         <NavLink className="navbar-brand" aria-current="page" to="/appointments/new/">Create an Appointment</NavLink>
         <NavLink className="navbar-brand" aria-current="page" to="/appointments/history/">Service History</NavLink>
+        <NavLink className="navbar-brand" aria-current="page" to="/salesperson"> Salespeople</NavLink>
+        <NavLink className="navbar-brand" aria-current="page" to="/salesperson/create"> Add a Salesperson</NavLink>
+        <NavLink className="navbar-brand" aria-current="page" to="/customers"> Customers</NavLink>
+        <NavLink className="navbar-brand" aria-current="page" to="/customers/create"> Add a Customer</NavLink>
+        <NavLink className="navbar-brand" aria-current="page" to="/sales"> Sales</NavLink>
+        <NavLink className="navbar-brand" aria-current="page" to="/sales/create"> Add a Sale</NavLink>
+        <NavLink className="navbar-brand" aria-current="page" to="/sales/history"> Sales History</NavLink>
+        
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>

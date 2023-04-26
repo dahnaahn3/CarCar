@@ -13,6 +13,13 @@ import NewTechnicianForm from './NewTechnicianForm'
 import AppointmentList from './AppointmentList';
 import NewAppointmentForm from './NewAppointmentForm';
 import ServiceHistory from './ServiceHistory';
+import Salesperson from './Salesperson';
+import SalespersonForm from './SalespersonForm';
+import CustomerForm from './CustomerForm';
+import Customers from './Customers';
+import Sales from './Sales';
+import SaleForm from './SaleForm';
+import SalesHistory from './SalesHistory';
 
 function App() {
   const [manufacturers, setManufacturers] = useState([]);
@@ -91,9 +98,26 @@ function App() {
             <Route path='history' element={<ServiceHistory appointments={appointments} getAppointments={getAppointments} setAppointments={setAppointments} />} />
           </Route>
           <Route path="models/">
-            <Route path="" element={<VehicleModels />} />
+            <Route index element={<VehicleModels />} />
             <Route path="create" element={<VehicleModelForm />} />
           </Route>
+          <Route path="salesperson/">
+            <Route index element={<Salesperson />} />
+            <Route path="create" element={<SalespersonForm />} />
+          </Route>
+
+          <Route path="customers/">
+            <Route index element={<Customers />} />
+            <Route path="create" element={<CustomerForm />} />
+          </Route>
+
+          <Route path="sales/">
+            <Route index element={<Sales />}/>
+            <Route path="create" element={<SaleForm />}/>
+            <Route path="history" element={<SalesHistory/>}/>
+
+          </Route>
+
         </Routes>
       </div>
     </BrowserRouter>
