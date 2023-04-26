@@ -5,13 +5,16 @@ function ServiceHistory({appointments, getAppointments, setAppointments}){
 
     const handleVinSearchChange = (event) => {
         const value = event.target.value;
-        setVinSearch(value.toUpperCase())
+        setVinSearch(value.toUpperCase());
+        getAppointments();
+        setAppointments(appointments)
     }
 
     const handleVinSearch = (event) => {
         event.preventDefault();
+        setAppointments(appointments);
         const filtered = appointments.filter((appointments) =>
-            appointments.vin.includes(vinSearch)
+            appointments.vin === (vinSearch)
         );
         setAppointments(filtered);
     }
