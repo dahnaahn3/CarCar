@@ -7,7 +7,7 @@ function ServiceHistory({appointments, getAppointments, setAppointments}){
         const value = event.target.value;
         setVinSearch(value.toUpperCase());
         getAppointments();
-        setAppointments(appointments)
+        setAppointments(appointments);
     }
 
     const handleVinSearch = (event) => {
