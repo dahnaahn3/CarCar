@@ -12,6 +12,7 @@ import TechnicianList from './TechnicianList';
 import NewTechnicianForm from './NewTechnicianForm'
 import AppointmentList from './AppointmentList';
 import NewAppointmentForm from './NewAppointmentForm';
+import ServiceHistory from './ServiceHistory';
 
 function App() {
   const [manufacturers, setManufacturers] = useState([]);
@@ -92,7 +93,6 @@ function App() {
             <Route path="" element={<VehicleModels />} />
             <Route path="create" element={<VehicleModelForm />} />
           </Route>
-
         </Routes>
       </div>
     </BrowserRouter>

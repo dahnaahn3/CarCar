@@ -6,7 +6,7 @@ function AppointmentList({appointments, getAppointments}){
         const url = `http://localhost:8080/api/appointments/${appointment.id}/cancel`
         const fetchConfig = {
             method: 'PUT',
-            body: JSON.stringify({ "completed": true}),
+            body: JSON.stringify({ "canceled": true}),
             headers: {
                 "Content-type": "application/json"
             }
