@@ -1,5 +1,10 @@
-function AutomobileList({automobiles}){
+import { useEffect } from "react";
+
+function AutomobileList({automobiles, getAutomobiles}){
     
+useEffect(() => {
+  getAutomobiles();
+}, []);
     return (
         <>
         <h1 className="mb-3 mt-3">Automobiles</h1>
