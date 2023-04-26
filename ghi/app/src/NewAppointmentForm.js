@@ -44,8 +44,6 @@ function NewAppointmentForm({technicians, getAppointments}){
         data.description = description;
         data.technician = parseInt(technician); //this is where things will break. Calling it.
 
-        console.log(data);
-
         const url = 'http://localhost:8080/api/appointments/';
         const fetchConfig = {
             method: "POST",
