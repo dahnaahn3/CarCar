@@ -38,9 +38,6 @@ function SaleForm(){
             customer: newCustomer,
             price: price
         }
-
-        console.log('data:::::', data)
-
         const salesURL = 'http://localhost:8090/api/sales/'
         const fetchConfig = {
             method: "post",
@@ -50,14 +47,9 @@ function SaleForm(){
             }
         };
 
-        console.log('fetch config', fetchConfig)
-
         const response = await fetch(salesURL, fetchConfig)
         if(response.ok){
             const newSale = await response.json()
-
-            console.log('response', response)
-            console.log('new sale' , newSale)
 
             setVin('')
             setNewSalesperson('')
@@ -138,7 +130,6 @@ function SaleForm(){
                     <input value={price} onChange={handlePriceChange} placeholder="price" required type="number" name="price" id="price" className="form-control"/>
                     <label htmlFor="price"> price </label>
                 </div>
-
 
                 <button className="btn btn-primary">Create</button>
 

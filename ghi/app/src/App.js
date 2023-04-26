@@ -14,6 +14,7 @@ import CustomerForm from './CustomerForm';
 import Customers from './Customers';
 import Sales from './Sales';
 import SaleForm from './SaleForm';
+import SalesHistory from './SalesHistory';
 
 function App() {
   const [manufacturers, setManufacturers] = useState([]);
@@ -78,6 +79,7 @@ function App() {
           <Route path="sales/">
             <Route index element={<Sales />}/>
             <Route path="create" element={<SaleForm />}/>
+            <Route path="history" element={<SalesHistory/>}/>
 
           </Route>
 
