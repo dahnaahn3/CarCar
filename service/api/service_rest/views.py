@@ -23,6 +23,7 @@ class AppointmentEncoder(ModelEncoder):
         "description",
         "VIP",
         "completed",
+        "canceled",
         "technician",
         "id",
         "vin",
@@ -132,7 +133,7 @@ def api_appointments(request, vin=None):
                 {"Error": "Creation Failed"}
             )
             
-@require_http_methods(["GET", "DELETE", "PUT"])
+@require_http_methods(["GET", "DELETE"])
 def api_appointment(request, id):
     if request.method == "GET":
         try:
@@ -147,7 +148,7 @@ def api_appointment(request, id):
                 {"Error": "Appointment does not exist"},
                 status= 404,
             )
-    elif request.method == "DELETE":
+    else:
         try:
             appointment = Appointment.objects.get(id=id)
             appointment.delete()
@@ -158,7 +159,31 @@ def api_appointment(request, id):
             return JsonResponse(
                 {"Message": "Does not exist"}
             )
-    else: #PUT
+
+@require_http_methods(["PUT"])
+def api_appointment_cancel(request,id):
+
+        try:
+            content = json.loads(request.body)
+            if "appointment" in content:
+                appointment = Appointment.objects.get(id=id)
+            
+            Appointment.objects.filter(id=id).update(**content)
+            appointment = Appointment.objects.get(id=id)
+            return JsonResponse(
+                appointment,
+                encoder=AppointmentEncoder,
+                safe=False,
+            )
+        except:
+            return JsonResponse(
+                {"message": "Update Failed"},
+                status=400
+            )
+            
+@require_http_methods(["PUT"])
+def api_appointment_complete(request,id):
+
         try:
             content = json.loads(request.body)
             if "appointment" in content:
