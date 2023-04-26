@@ -65,7 +65,7 @@ function NewAppointmentForm({technicians, getAppointments}){
     }
     return(
         <div className="row">
-            <div className="offset-3 col-6">
+            <div className="offset-3 col-6" >
                 <div className="shadow p-4 mt-4">
                 <h1>Create a new appointment</h1>
                 <form onSubmit={handleSubmit} id="create-appointment-form">

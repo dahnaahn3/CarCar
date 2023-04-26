@@ -20,7 +20,7 @@ function NewAutomobileForm({automobiles, getAutomobies}){
 
     const handleVinChange = (event) => {
         const value = event.target.value;
-        setVin(value);
+        setVin(value.toUpperCase());
     }
 
     const handleModelChange = (event) => {

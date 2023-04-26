@@ -5,27 +5,48 @@ function Nav() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">CarCar</NavLink>
-        <NavLink className="navbar-brand" to="/models">Models</NavLink>
-        <NavLink className="navbar-brand" to="/models/create">Create a Model</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/manufacturers/">Manufacturers</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/manufacturers/new/">Create a Manufacturer</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/models">Vehicle Models</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/models/create">Create a Vehicle Model</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/automobiles/">Automobiles</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/automobiles/new/">Create an Automobile</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/technicians/">Technicians</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/technicians/new/">Create a Technicians</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/appointments/">Appointments</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/appointments/new/">Create an Appointment</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/appointments/history/">Service History</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/salesperson"> Salespeople</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/salesperson/create"> Add a Salesperson</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/customers"> Customers</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/customers/create"> Add a Customer</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/sales"> Sales</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/sales/create"> Add a Sale</NavLink>
-        <NavLink className="navbar-brand" aria-current="page" to="/sales/history"> Sales History</NavLink>
-        
+        <div className="dropdown">
+          <button className="btn btn-light dropdown-toggle me-2" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Inventory
+            </button>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <NavLink className="dropdown-item" aria-current="page" to="/manufacturers/">Manufacturers</NavLink>
+              <NavLink className="dropdown-item" aria-current="page" to="/manufacturers/new/">Create a Manufacturer</NavLink>
+              <div className='dropdown-divider'></div>
+              <NavLink className="dropdown-item" aria-current="page" to="/models/">Models</NavLink>
+              <NavLink className="dropdown-item" aria-current="page" to="/models/create/">Create a Model</NavLink>
+              <div className='dropdown-divider'></div>
+              <NavLink className="dropdown-item" aria-current="page" to="/automobiles/">Automobiles</NavLink>
+              <NavLink className="dropdown-item" aria-current="page" to="/automobiles/new/">Create an Automobile</NavLink>
+            </div>
+            <button className="btn btn-light dropdown-toggle me-2" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sales
+            </button>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <NavLink className="dropdown-item" aria-current="page" to="/salesperson/"> Salespeople</NavLink>
+              <NavLink className="dropdown-item" aria-current="page" to="/salesperson/create/"> Add a Salesperson</NavLink>
+              <div className='dropdown-divider'></div>
+              <NavLink className="dropdown-item" aria-current="page" to="/customers/"> Customers</NavLink>
+              <NavLink className="dropdown-item" aria-current="page" to="/customers/create/"> Add a Customer</NavLink>
+              <div className='dropdown-divider'></div>
+              <NavLink className="dropdown-item" aria-current="page" to="/sales/"> Sales</NavLink>
+              <NavLink className="dropdown-item" aria-current="page" to="/sales/create/"> Add a Sale</NavLink>
+              <div className='dropdown-divider'></div>
+              <NavLink className="dropdown-item" aria-current="page" to="/sales/history/"> Sales History</NavLink>
+            </div>
+            <button className="btn btn-light dropdown-toggle me-2" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Services
+            </button>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <NavLink className="dropdown-item" aria-current="page" to="/technicians/">Technicians</NavLink>
+            <NavLink className="dropdown-item" aria-current="page" to="/technicians/new/">Create a Technicians</NavLink>
+            <div className='dropdown-divider'></div>
+            <NavLink className="dropdown-item" aria-current="page" to="/appointments/">Appointments</NavLink>
+            <NavLink className="dropdown-item" aria-current="page" to="/appointments/new/">Create an Appointment</NavLink>
+            <div className='dropdown-divider'></div>
+            <NavLink className="dropdown-item" aria-current="page" to="/appointments/history/">Service History</NavLink>
+            </div>
+        </div>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
