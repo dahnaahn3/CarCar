@@ -28,7 +28,7 @@ function AppointmentList({appointments, getAppointments}){
         };
         const response = await fetch(url, fetchConfig);
         if (response.ok){
-            getAppointments()
+            getAppointments();
         }
     }
     useEffect(() => {
