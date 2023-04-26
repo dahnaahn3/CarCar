@@ -90,7 +90,7 @@ function SaleForm(){
                 <div className="mb-3">
                     <select onChange={handleVinChange} required name="vin" id="vin" className="form-select">
                         <option value={vin} >Choose an automobile VIN</option>
-                        {auto.map(a =>{
+                        {auto.filter((a) => a.sold===false).map(a =>{
                             return(
                                 <option key={a.vin} value={a.vin}>
                                     {a.vin}

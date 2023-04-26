@@ -47,13 +47,13 @@ class SaleEncoder(ModelEncoder):
 
 @require_http_methods(['GET', 'POST'])
 def api_list_salesperson(request):
-    if request.method == "GET": #LIST ALL THE SALESPERSON
+    if request.method == "GET":
         salesperson = Salesperson.objects.all()
         return JsonResponse(
             {"salesperson": salesperson},
             encoder=SalespersonEncoder,
         )
-    else: #POST TO CREATE SALESPERSON
+    else:
         try:
             content = json.loads(request.body)
             salesperson = Salesperson.objects.create(**content)
@@ -87,13 +87,13 @@ def api_delete_salesperson(request, id):
 
 @require_http_methods(['GET', 'POST'])
 def api_list_customer(request):
-    if request.method=="GET": #GET LIST OF ALL CUSTOMER
+    if request.method=="GET":
         customer = Customer.objects.all()
         return JsonResponse(
             {'customer': customer},
             encoder=CustomerEncoder
         )
-    else: #CREATE A NEW CUSTOMER
+    else:
         try:
             content = json.loads(request.body)
             customer = Customer.objects.create(**content)
@@ -126,13 +126,13 @@ def api_delete_customer(request, id):
 
 @require_http_methods(["GET", "POST"])
 def api_list_sales(request):
-    if request.method=="GET": #GET LIST OF ALL THE SALES
+    if request.method=="GET":
         sales = Sale.objects.all()
         return JsonResponse(
             {"sales": sales},
             encoder=SaleEncoder,
         )
-    else: #CREATE A SALE
+    else:
         content = json.loads(request.body)
 
         try:

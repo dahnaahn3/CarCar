@@ -13,8 +13,9 @@ function SalesHistory() {
     }
   };
 
-  const handleSubmit = (event) =>{
-    setSelectedSalesperson(event.target.value)
+  const handleSubmit = (event) => {
+    const value = event.target.value
+    setSelectedSalesperson(value)
   }
 
   useEffect(() => {
