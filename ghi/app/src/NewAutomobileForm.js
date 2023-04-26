@@ -76,7 +76,7 @@ function NewAutomobileForm({automobiles, getAutomobies}){
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
                 <h1>Create a new automobile</h1>
-                <form onSubmit={handleSubmit} id="create-appointment-form">
+                <form onSubmit={handleSubmit} id="create-automobile-form">
                     <div className="form-floating mb-3">
                         <input onChange={handleColorChange} placeholder="Color" required type="text" name = "color" id="color" className="form-control" value={color}/>
                         <label htmlFor="color">Color</label>

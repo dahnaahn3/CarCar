@@ -86,7 +86,7 @@ function App() {
           </Route>
           <Route path="appointments">
             <Route index element={<AppointmentList appointments={appointments} getAppointments={getAppointments} />}/>
-            <Route path='new' element={<NewAppointmentForm appointments={appointments} getAppointments={getAppointments} />} />
+            <Route path='new' element={<NewAppointmentForm technicians={technicians} getAppointments={getAppointments} />} />
           </Route>
           <Route path="models/">
             <Route path="" element={<VehicleModels />} />
