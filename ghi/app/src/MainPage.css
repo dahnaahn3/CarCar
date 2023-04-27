@@ -1,6 +1,9 @@
 @import "https://unpkg.com/open-props";
 @import "https://unpkg.com/open-props/normalize.min.css";
 
+body{
+    font-family: 'Castoro Titling', cursive;
+}
 /* header info */
 #body{
     display: flex;
@@ -77,21 +80,23 @@
 
 /* partnerships */
 .skills {
-    --button_radius: 0.75em;
-    --button_color: linear-gradient(164deg, rgba(180,180,180,1) 0%, rgb(122, 122, 122) 44%, rgb(255, 255, 255) 100%);
+    --button_radius: 0.25em;
+    --button_color: transparent;
     border-radius: var(--button_radius);
     background: var(--button_outline_color);
+
 }
 .button_top {
     display: block;
     box-sizing: border-box;
-    border: 2px solid var(--button_outline_color);
+    border: 1px solid var(--button_outline_color);
     border-radius: var(--button_radius);
-    padding: 0.5em 0.5em;
     background: var(--button_color);
     color: var(--button_outline_color);
     transform: translateY(-0.2em);
     transition: transform 0.1s ease;
+
+
 }
 button:hover .button_top {
     transform: translateY(-0.33em);
@@ -169,4 +174,11 @@ transform: rotateY(240deg) translateZ(430px); }
     to {
     transform: rotateY(-360deg);
     }
+}
+
+.mainpage-footer{
+    text-align: center;
+
+
+
 }
