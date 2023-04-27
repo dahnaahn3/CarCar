@@ -30,7 +30,39 @@ Matthew Huff - Services
 # Service microservice
 ## List of URL, ports, CRUD
 ![services microservice](/ServicesREADME.png)
+### Technicians Insomnia requests
 
+<details>
+<summary>Making an insomnia GET request to list all technicians in the Services microservice</summary>
+<br>
+
+    {
+        "technicians": [
+            {
+                "first_name": "Sean",
+                "last_name": "Myrom",
+                "employee_number": 101,
+                "id": 2
+            },
+
+            ...
+        ]
+    }
+The GET request will return a list of all the customer details information with the key "customer".
+
+</details>
+
+<details>
+<summary>Making an insomnia POST request to create a new technician in the Services microservice</summary>
+<br>
+
+    {
+	"first_name": "Sean",
+	"last_name":"Myrom",
+	"employee_number": "101"
+    }
+Requires a first_name, last_name, and employee_number field.
+</details>
 
 
 ---
