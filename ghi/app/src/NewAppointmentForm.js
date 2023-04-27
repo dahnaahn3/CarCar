@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 
-function NewAppointmentForm({technicians, getAppointments}){
+function NewAppointmentForm({technicians, getAppointments, getTechnicians}){
     const navigate = useNavigate();
 
     const [vin, setVin] = useState('');
     const [customerName, setCustomerName] = useState('');
     const [dateTime, setDateTime] = useState('');
     const [description, setDescription] = useState('');
-    const [technician, setTechnician] = useState('')
+    const [technician, setTechnician] = useState('');
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const handleVinChange = (event) => {
         const value = event.target.value;
@@ -65,7 +66,14 @@ function NewAppointmentForm({technicians, getAppointments}){
             navigate('/appointments');
 
         }
+
     }
+
+    useEffect(() => {
+        if (dropdownOpen){
+            getTechnicians();
+        }
+    }, [dropdownOpen, getTechnicians]);
     return(
         <div className="row">
             <div className="offset-3 col-6" >
