@@ -3,7 +3,7 @@ import './MainPage.css'
 function MainPage() {
   return (
     <>
-    {/* MAIN HEADER */}
+{/* MAIN HEADER */}
       <div id="body">
         <div id="mainpage-header">
             <h1 id="mainpage-logo">Welcome to CarCar</h1>
@@ -16,7 +16,7 @@ function MainPage() {
           </div>
         </div>
 
-
+{/* IMAGE CAROUSEL */}
         <div className="imgcontainer">
           <div className="carousel">
             <div className="carousel__face"><span className="abc">EXCELLENCE</span></div>
@@ -33,40 +33,33 @@ function MainPage() {
 
 
 {/* PARTNERSHIPS */}
-    <div style={{paddingTop: "28rem"}}>
+    <div style={{paddingTop: "30rem"}}>
         <div className="h-100 d-flex align-items-center justify-content-center" > <h1 style={{fontFamily: 'Castoro Titling'}}>CARCAR partnerships</h1></div>
         <div className="h-100 d-flex align-items-center justify-content-center p-4">
-
             <button className="skills">
             <span className="button_top"><img src="https://i.pinimg.com/originals/a9/40/82/a94082bbe801025466094c16b98d130e.jpg" alt="partner" /></span>
             </button>
-
             <button className="skills">
             <span className="button_top"><img src="https://i.pinimg.com/originals/a9/40/82/a94082bbe801025466094c16b98d130e.jpg" alt="partner" /></span>
             </button>
-
             <button className="skills">
             <span className="button_top"><img src="https://i.pinimg.com/originals/a9/40/82/a94082bbe801025466094c16b98d130e.jpg" alt="partner" /></span>
             </button>
-
             <button className="skills">
             <span className="button_top"><img src="https://i.pinimg.com/originals/a9/40/82/a94082bbe801025466094c16b98d130e.jpg" alt="partner" /></span>
             </button>
-
             <button className="skills">
             <span className="button_top"><img src="https://i.pinimg.com/originals/a9/40/82/a94082bbe801025466094c16b98d130e.jpg" alt="partner" /></span>
             </button>
-
             <button className="skills">
             <span className="button_top"><img src="https://i.pinimg.com/originals/a9/40/82/a94082bbe801025466094c16b98d130e.jpg" alt="partner" /></span>
             </button>
-
             <button className="skills">
             <span className="button_top"><img src="https://i.pinimg.com/originals/a9/40/82/a94082bbe801025466094c16b98d130e.jpg" alt="partner" /></span>
             </button>
-
         </div>
         </div>
+
 
 {/* CUSTOMER REVIEWS */}
 <div style={{paddingTop: "5rem"}}>
@@ -104,7 +97,6 @@ function MainPage() {
         </div>
         </section>
         </div>
-
     </>
   );
 }
