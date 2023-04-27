@@ -48,20 +48,98 @@ Matthew Huff - Services
             ...
         ]
     }
-The GET request will return a list of all the customer details information with the key "customer".
+The GET request will return a dictionarey with the key "technicians" with a value of a list of dictionaries with the keys for first_name, last_name, employee_number, and id.
 
 </details>
 
 <details>
 <summary>Making an insomnia POST request to create a new technician in the Services microservice</summary>
+JSON Body:
 <br>
-
     {
 	"first_name": "Sean",
 	"last_name":"Myrom",
 	"employee_number": "101"
     }
 Requires a first_name, last_name, and employee_number field.
+
+Returns:
+<br>
+    {
+	"first_name": "Sean",
+	"last_name": "Myrom",
+	"employee_number": "101"
+    }
+The employee_number serves as the unique identifyer. 
+</details>
+
+
+---
+### Appointments Insomnia requests
+
+<details>
+<summary>Making an insomnia GET request to list all appointments in the Services microservice</summary>
+<br>
+
+    {
+        "appointments": [
+            {
+                "href": "/api/appointments/3",
+                "customer_name": "Jane Smith",
+                "date_time": "2023-03-11T09:00:00+00:00",
+                "description": "Oil change",
+                "VIP": true,
+                "completed": true,
+                "canceled": false,
+                "technician": {
+                    "first_name": "Sean",
+                    "last_name": "Myrom",
+                    "employee_number": 101,
+                    "id": 2
+                },
+                "id": 3,
+                "vin": "sdlkfj123"
+            },
+
+            ...
+        ]
+    }
+The GET request will return a list of all the appointments.
+
+</details>
+
+<details>
+<summary>Making an insomnia POST request to create a new appointment in the Services microservice</summary>
+<br>
+
+    {
+    "vin": "sdlkfj123777",
+    "customer_name": "Jane Smith",
+    "description": "Oil change",
+    "date_time": "2023-03-11T09:00:00",
+    "technician": 101
+    }
+Requires a vin, customer_name, description, date_time and technician field.
+
+Returns:
+<br>
+    {
+	"href": "/api/appointments/8",
+	"customer_name": "Jane Smith",
+	"date_time": "2023-03-11T09:00:00",
+	"description": "Oil change",
+	"VIP": false,
+	"completed": false,
+	"canceled": false,
+	"technician": {
+		"first_name": "Sean",
+		"last_name": "Myrom",
+		"employee_number": 101,
+		"id": 2
+	},
+	"id": 8,
+	"vin": "sdlkfj123777"
+    }
 </details>
 
 
