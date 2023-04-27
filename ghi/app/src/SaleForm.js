@@ -128,7 +128,7 @@ function SaleForm(){
 
                 <div className="form-floating mb-3">
                     <input value={price} onChange={handlePriceChange} placeholder="price" required type="number" name="price" id="price" className="form-control"/>
-                    <label htmlFor="price"> price </label>
+                    <label htmlFor="price"> Price </label>
                 </div>
 
                 <button className="btn btn-primary">Create</button>

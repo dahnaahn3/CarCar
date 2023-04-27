@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NewAutomobileForm({automobiles, getAutomobies}){
+    const navigate = useNavigate();
+
     const [color, setColor] = useState('');
     const [year, setYear] = useState('');
     const [vin, setVin] = useState('');
@@ -54,7 +57,8 @@ function NewAutomobileForm({automobiles, getAutomobies}){
             setColor('');
             setYear('');
             setVin('');
-            setModel('');  
+            setModel('');
+            navigate('/automobiles');  
         }
     }
 

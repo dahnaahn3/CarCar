@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NewManufacturerForm({manufacturers, getManufacturers}){
+    const navigate = useNavigate();
     const [name, setName] = useState('');
 
 
@@ -28,6 +30,7 @@ function NewManufacturerForm({manufacturers, getManufacturers}){
 
         if (response.ok){
             setName('')
+            navigate('/manufacturers')
         }
     }
     return(

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 
 function NewAppointmentForm({technicians, getAppointments}){
+    const navigate = useNavigate();
 
     const [vin, setVin] = useState('');
     const [customerName, setCustomerName] = useState('');
@@ -60,6 +62,7 @@ function NewAppointmentForm({technicians, getAppointments}){
             setDateTime('');
             setDescription('');
             setTechnician('');
+            navigate('/appointments');
 
         }
     }

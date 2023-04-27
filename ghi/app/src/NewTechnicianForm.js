@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NewTechnicianForm({technicians, getTechnicians}){
+    const navigate = useNavigate();
+
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [employeeNumber, setEmployeeNumber] = useState('')
@@ -42,6 +45,7 @@ function NewTechnicianForm({technicians, getTechnicians}){
             setFirstName('');
             setLastName('');
             setEmployeeNumber('');
+            navigate('/technicians')
         };
     };
 
