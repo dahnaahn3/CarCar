@@ -31,6 +31,7 @@ function AppointmentList({appointments, getAppointments}){
             getAppointments();
         }
     }
+    
     useEffect(() => {
         getAppointments();
     }, []);
@@ -51,10 +52,16 @@ function AppointmentList({appointments, getAppointments}){
         <tbody>
           {appointments.map(appointment => {
             if (appointment.completed === false && appointment.canceled === false){
+                let vipStatus;
+                if(appointment.VIP === true){
+                    vipStatus = "Yes";
+                }else{
+                    vipStatus = "No";
+                }
                 return (
                 <tr key={appointment.id}>
                     <td>{ appointment.vin }</td>
-                    <td>{ appointment.vip }</td>
+                    <td>{ vipStatus }</td>
                     <td>{ appointment.customer_name }</td>
                     <td>{ new Date(appointment.date_time).toLocaleDateString("en-US")} at { new Date(appointment.date_time).toLocaleTimeString([], {
                             hour: "2-digit",

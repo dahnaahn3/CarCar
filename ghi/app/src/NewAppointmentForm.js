@@ -10,27 +10,27 @@ function NewAppointmentForm({technicians, getAppointments}){
 
     const handleVinChange = (event) => {
         const value = event.target.value;
-        setVin(value)
+        setVin(value.toUpperCase());
     }
 
     const handleCustomerNameChange = (event) => {
         const value = event.target.value;
-        setCustomerName(value)
+        setCustomerName(value);
     }
 
     const handleDateTimeChange = (event) => {
         const value = event.target.value;
-        setDateTime(value)
+        setDateTime(value);
     }
 
     const handleDescriptionChange = (event) => {
         const value = event.target.value;
-        setDescription(value)
+        setDescription(value);
     }
 
     const handleTechnicianChange = (event) => {
         const value = event.target.value;
-        setTechnician(value)
+        setTechnician(value);
     }
 
     const handleSubmit = async (event) => {

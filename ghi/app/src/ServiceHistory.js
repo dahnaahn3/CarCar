@@ -47,6 +47,12 @@ function ServiceHistory({appointments, getAppointments, setAppointments}){
         <tbody>
           {appointments.map(appointment => {
                 let status;
+                let vipStatus;
+                if (appointment.VIP === true){
+                    vipStatus = "Yes";
+                }else{
+                    vipStatus = "No";
+                }
                 if (appointment.completed === true){
                     status = "Completed"
                 }else if( appointment.canceled === true){
@@ -57,7 +63,7 @@ function ServiceHistory({appointments, getAppointments, setAppointments}){
                 return (
                 <tr key={appointment.id}>
                     <td>{ appointment.vin }</td>
-                    <td>{ appointment.vip }</td>
+                    <td>{ vipStatus }</td>
                     <td>{ appointment.customer_name }</td>
                     <td>{ new Date(appointment.date_time).toLocaleDateString("en-US")} at { new Date(appointment.date_time).toLocaleTimeString([], {
                             hour: "2-digit",
