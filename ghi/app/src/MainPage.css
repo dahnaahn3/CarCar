@@ -1,0 +1,172 @@
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css";
+
+/* header info */
+#body{
+    display: flex;
+    align-items: center;
+}
+#mainpage-header{
+    background-repeat: no-repeat;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-top: 50px;
+    text-align: center;
+    flex:1;
+}
+#mainpage-logo{
+    font-family: 'Castoro Titling', cursive;
+}
+#mainpage-descrip{
+    font-family: 'Castoro Titling', cursive;
+}
+#mainpage-image{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* reviews */
+.scrollport {
+    -webkit-mask-image: linear-gradient(to right, #19191900, #000, #000, );
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    display: flex;
+    gap: var(--size-10);
+    align-items: start;
+    padding: var(--size-10);
+}
+.scrollport > .reviews-div {
+    block-size: var(--size-4);
+    aspect-ratio: var(--ratio-square);
+    background-color: transparent;
+    border-radius: var(--radius-3);
+    box-shadow: var(--shadow-4);
+    height: 200px;
+    width: 200px;
+
+}
+.review-h{
+    text-align: center;
+    margin-top: 30px;
+    font-family: 'Castoro Titling', cursive;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 20px;
+}
+.review-p{
+    text-align: center;
+    font-family: 'Castoro Titling', cursive;
+    text-align: center;
+}
+.review-title{
+    font-family: 'Castoro Titling', cursive;
+    text-align: center;
+    padding-top: 5rem;
+}
+.contact-main{
+    font-family: 'Castoro Titling', cursive;
+    text-align: right;
+}
+.contact-main p {
+    display: block;
+    margin: 0;
+}
+
+
+/* partnerships */
+.skills {
+    --button_radius: 0.75em;
+    --button_color: linear-gradient(164deg, rgba(180,180,180,1) 0%, rgb(122, 122, 122) 44%, rgb(255, 255, 255) 100%);
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
+}
+.button_top {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.5em 0.5em;
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+}
+button:hover .button_top {
+    transform: translateY(-0.33em);
+}
+button:active .button_top {
+    transform: translateY(0);
+}
+
+/* car carousel */
+.imgcontainer {
+    position: relative;
+    width: 320px;
+    margin: 100px auto 0 auto;
+    perspective: 1000px;
+}
+
+.carousel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: rotate360 60s infinite forwards linear;
+}
+.carousel__face {
+    position: absolute;
+    width: 300px;
+    height: 187px;
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    background-size: cover;
+    box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.5);
+    display: flex;
+}
+
+.abc {
+    margin: auto;
+    font-size: 1rem;
+    font-family: 'Castoro Titling', cursive;
+    color: white;
+}
+
+
+.carousel__face:nth-child(1) {
+    background-image: url("https://hips.hearstapps.com/hmg-prod/images/new-ghost-white-fr-3-4-1-1598911711.jpg");
+    transform: rotateY(  0deg) translateZ(430px); }
+.carousel__face:nth-child(2) {
+    background-image: url("https://idsb.tmgrup.com.tr/ly/uploads/images/2021/05/30/118050.jpg");
+    transform: rotateY( 40deg) translateZ(430px); }
+.carousel__face:nth-child(3) {
+    background-image: url("https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/models_gw/2023/03_29_revuelto/gate_models_s_02.jpg");
+    transform: rotateY( 80deg) translateZ(430px); }
+.carousel__face:nth-child(4) {
+    background-image: url("https://thumbor.forbes.com/thumbor/fit-in/960x600/https://www.forbes.com/wheels/wp-content/uploads/2022/08/2023_Genesis_G90_Gallery1.jpg");
+    transform: rotateY(120deg) translateZ(430px); }
+.carousel__face:nth-child(5) {
+    background-image: url("https://media.ed.edmunds-media.com/tesla/model-x/2021/oem/2021_tesla_model-x_4dr-suv_plaid_fq_oem_1_1600.jpg");
+transform: rotateY(160deg) translateZ(430px); }
+.carousel__face:nth-child(6) {
+    background-image: url("https://di-uploads-pod6.dealerinspire.com/luxuryautocollection/uploads/2022/07/Hero-03_072922.jpg");
+transform: rotateY(200deg) translateZ(430px); }
+.carousel__face:nth-child(7) {
+    background-image: url("https://media.architecturaldigest.com/photos/5b9691509cd13621bf9b559b/16:9/w_2991,h_1682,c_limit/JPrice_Lamborghini_MCW18-1755.jpg");
+transform: rotateY(240deg) translateZ(430px); }
+.carousel__face:nth-child(8) {
+    background-image: url("https://revologycars.com/wp-content/uploads/2017/10/GR7A2602-e1582584586949.jpg");
+    transform: rotateY(280deg) translateZ(430px); }
+.carousel__face:nth-child(9) {
+    background-image: url("https://media.architecturaldigest.com/photos/5ced629704c41e1a9b9a8bcf/4:3/w_2248,h_1686,c_limit/Bugatti-LVN-7%20%5BBugatti%5D.jpg");
+    transform: rotateY(320deg) translateZ(430px); }
+@keyframes rotate360 {
+    from {
+    transform: rotateY(0deg);
+    }
+    to {
+    transform: rotateY(-360deg);
+    }
+}
