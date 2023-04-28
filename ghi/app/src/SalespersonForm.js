@@ -51,7 +51,7 @@ function SalespersonForm(){
 
 
     return(
-        <div className='row' style={{width:"50em"}}>
+        <div className='row' style={{width:"30rem", marginLeft: "15rem" }} >
     <div className="offset-3" style={{textAlign: "center"}}>
             <div className='shadow p-4 mt-4'>
             <h1>Create a new salesperson</h1>

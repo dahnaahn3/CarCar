@@ -15,11 +15,10 @@ function Contact(){
           'ulivM4tLF2ZrGmG2S'
         )
         .then((response) => {
-          console.log('SUCCESS!', response.status, response.text);
           form.current.reset();
           alert('Your email has been sent! Thank you and have a great day!');
         }, (error) => {
-          console.log('FAILED...', error);
+            alert('Your message could not be sent at this time. Please try again later.')
         });
 
         e.target.elements.user_name.value = '';
