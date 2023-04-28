@@ -20,6 +20,7 @@ import Customers from './Customers';
 import Sales from './Sales';
 import SaleForm from './SaleForm';
 import SalesHistory from './SalesHistory';
+import Contact from './Contact';
 
 function App() {
   const [manufacturers, setManufacturers] = useState([]);
@@ -56,7 +57,7 @@ function App() {
       setTechnicians(technicians)
     }
   }
-  
+
   const getAppointments = async () => {
     const url = 'http://localhost:8080/api/appointments/';
     const response = await fetch(url)
@@ -115,8 +116,9 @@ function App() {
             <Route index element={<Sales />}/>
             <Route path="create" element={<SaleForm />}/>
             <Route path="history" element={<SalesHistory/>}/>
-
           </Route>
+
+          <Route path="contact/" element={<Contact /> }/>
 
         </Routes>
       </div>

@@ -46,6 +46,7 @@ function Nav() {
             <div className='dropdown-divider'></div>
             <NavLink className="dropdown-item" aria-current="page" to="/appointments/history/">Service History</NavLink>
             </div>
+            <NavLink className="btn btn-light me-2" style={{color:"black"}} aria-current="page" to="/contact/">Contact Us</NavLink>
         </div>
       </div>
     </nav>
