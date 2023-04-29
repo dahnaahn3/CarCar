@@ -32,6 +32,7 @@ body{
 
 /* reviews */
 .scrollport {
+    mask-image: linear-gradient(to right, #19191900, #000, #000, );
     -webkit-mask-image: linear-gradient(to right, #19191900, #000, #000, );
     overflow-x: auto;
     overscroll-behavior-x: contain;

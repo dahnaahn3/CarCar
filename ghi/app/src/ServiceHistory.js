@@ -49,9 +49,9 @@ function ServiceHistory({appointments, getAppointments, setAppointments}){
                 let status;
                 let vipStatus;
                 if (appointment.VIP === true){
-                    vipStatus = "Yes";
+                    vipStatus = <span style={{color: "green"}}>&#10003;</span>;
                 }else{
-                    vipStatus = "No";
+                    vipStatus = <span style={{color: "red"}}>&#10007;</span>;
                 }
                 if (appointment.completed === true){
                     status = "Completed"

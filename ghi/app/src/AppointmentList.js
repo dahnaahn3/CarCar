@@ -54,9 +54,9 @@ function AppointmentList({appointments, getAppointments}){
             if (appointment.completed === false && appointment.canceled === false){
                 let vipStatus;
                 if(appointment.VIP === true){
-                    vipStatus = "Yes";
+                    vipStatus = <span style={{color: "green"}}>&#10003;</span>;
                 }else{
-                    vipStatus = "No";
+                    vipStatus = <span style={{color: "red"}}>&#10007;</span>;
                 }
                 return (
                 <tr key={appointment.id}>
