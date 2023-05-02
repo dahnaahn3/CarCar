@@ -53,7 +53,7 @@ function CustomerForm(){
     }
 
     return(
-        <div className='row' style={{width:"50em"}}>
+        <div className='row' style={{width:"35em", marginLeft:"10rem"}}>
     <div className="offset-3" style={{textAlign: "center"}}>
             <div className='shadow p-4 mt-4'>
             <h1>Create a new customer</h1>
